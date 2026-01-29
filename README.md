@@ -235,7 +235,9 @@ GDPR Review and Final Checks     :des6, after des5, 3d
 
 
 
-```
+# Salesforce → AB Tasty Always-on Personalisation Flow
+
+```mermaid
 flowchart TD
   A[Start: Salesforce always on sync to AB Tasty] --> B[Resolve unified User ID\nweb app email SMS in store]
   B --> C[Ingest LV data into AB Tasty\nprofile attributes and events]
@@ -275,5 +277,5 @@ flowchart TD
   W -- Yes --> M
   W -- No --> X[Recycle to nurture\nAdjust frequency caps\nUpdate segments]
   X --> E
-
 ```
+
