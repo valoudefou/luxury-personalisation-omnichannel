@@ -239,43 +239,54 @@ GDPR Review and Final Checks     :des6, after des5, 3d
 
 ```mermaid
 flowchart TD
-  A[Start: Salesforce always on sync to AB Tasty] --> B[Resolve unified User ID\nweb app email SMS in store]
-  B --> C[Ingest LV data into AB Tasty\nprofile attributes and events - USER ID, TRANSACTION INSTORE, PRODUCT BOUGHT INSTORE, NUMBER OF TRANSACTION, IDS OF THE PRODUCT PURCHASED]
-  C --> D[Expose omnichannel parameters\nEmail: sent open click content\nPush: delivered open click\nSMS: sent click\nWeb/App: view add to cart wishlist purchase\nIn store: purchase items amount]
+  %% =========================
+  %% DATA + TRIGGER
+  %% =========================
+  A[Trigger: First transaction\nOnline or In-store] --> B[Salesforce captures transaction\nUser ID / Loyalty card ID\nProduct IDs purchased\nTransaction count\nAmount / store ID]
+  B --> C[Expose all Salesforce data to AB Tasty\nIdentity stitching + unified profile]
+  C --> D[Compute complementary products\nfrom product IDs purchased\nGenerate Top 5 recommendations]
 
-  D --> E[User arrives on website or app]
-  E --> F{Has recent purchase\nonline or in store?}
+  %% =========================
+  %% EMAIL ACTIVATION
+  %% =========================
+  D --> E[Trigger Email #1\nObjective: bring visitor to Web/App]
+  E --> F[Email provider passes Visitor ID\ninto AB Tasty landing URL parameters]
+  F --> G[Visitor lands on PLP via email deep link]
 
-  F -- No --> G[Personalise discovery\nYou may also like reels\nTrending by segment\nContextual content]
-  G --> H[Track behaviour and update profile]
-  H --> E
+  %% =========================
+  %% ONSITE EXPERIENCE
+  %% =========================
+  G --> H[PLP experience in AB Tasty\nReorder category/listing\nDisplay 5 complementary products\nRecommendations override standard merchandising]
 
-  F -- Yes --> I[Build recommendations\nComplementary to purchased items\nBased on spend and history\nExclude already owned]
-  I --> J[From email user arrive on PLP with recommended products complemnetary products]
-  J --> K[Start second purchase window]
+  %% =========================
+  %% STOP CONDITION
+  %% =========================
+  H --> I{Purchase occurs?}
+  I -- Yes --> Z[STOP sequence\nEnd journey]
+  I -- No --> J[No purchase\nSend PLP impression + viewed products\nBack to Salesforce + Potions]
 
-  K --> L{Second purchase occurs\nwithin window?}
-  L -- Yes --> M[Stop follow up\nEnd journey]
-  L -- No --> N[If user don’t by potions passed recs in email provider with same products displayed previously on PLP head of PLP]
+  %% =========================
+  %% FOLLOW-UP EMAIL
+  %% =========================
+  J --> K[Email #2\nUse Potions variables / recs\nInclude SAME products as PLP header]
+  K --> L{User clicks a product in email?}
 
-  N --> O{User click product or not?}
-  O -- Yes --> M
-  O -- No --> P[Trigger comms wave 2\nMore assertive\nFocus on complementary\nInclude seen products]
+  %% Click path
+  L -- Yes --> M[Redirect to PDP\nClick tracked by email provider + AB Tasty]
+  M --> N[PDP experience\nKeep complementary products\nlinked to recommended products]
+  N --> O{Purchase occurs?}
+  O -- Yes --> Z
+  O -- No --> P[Continue nurture / retargeting]
 
-  P --> Q{Conversion after wave 2?}
-  Q -- Yes --> M
-  Q -- No --> R[Privilege escalation\nChoose best action]
-  R --> S{Customer value\nand intent score high?}
+  %% No-click path
+  L -- No --> Q[STOP email journey\nNo engagement]
+  Q --> R[Fallback onsite message\nIf visitor returns: \"Contact an advisor\\nto finalise your purchase\"]
 
-  S -- Yes --> T[Invite to private event\nor advisor appointment]
-  S -- No --> U[In store incentive\nSpend code or store visit nudge]
-
-  T --> V[Landing experience\nPrimary CTA: Book appointment\nSecondary: Add to cart\nShow nearest stores]
-  U --> V
-
-  V --> W{Conversion or booking?}
-  W -- Yes --> M
-  W -- No --> X[Recycle to nurture\nAdjust frequency caps\nUpdate segments]
-  X --> E
+  %% =========================
+  %% PARALLEL STORE PUSH
+  %% =========================
+  C --> S[Parallel flow: Geolocation activation]
+  S --> T[Push in-person store visit\nNearest store + directions\nPrivate appointment CTA]
+  T --> U[If no click/purchase\nDisplay CTA: \"Constructer un conseiller\\npour finaliser achat\"]
 ```
 
