@@ -242,51 +242,53 @@ flowchart TD
   %% =========================
   %% DATA + TRIGGER
   %% =========================
-  A[Trigger: First transaction\nOnline or In-store] --> B[Salesforce captures transaction\nUser ID / Loyalty card ID\nProduct IDs purchased\nTransaction count\nAmount / store ID]
-  B --> C[Expose all Salesforce data to AB Tasty\nIdentity stitching + unified profile]
-  C --> D[Compute complementary products\nfrom product IDs purchased\nGenerate Top 5 recommendations]
+  A[Trigger: First transaction Online or In-store] --> B[Salesforce captures transaction User ID / Loyalty card ID Product IDs purchased Transaction count Amount / store ID]
+  B --> C[Expose all Salesforce data to AB Tasty Identity stitching + unified profile]
+  C --> D[Compute complementary products from product IDs purchased Generate Top 5 recommendations]
 
   %% =========================
   %% EMAIL ACTIVATION
   %% =========================
-  D --> E[Trigger Email #1\nObjective: bring visitor to Web/App]
-  E --> F[Email provider passes Visitor ID\ninto AB Tasty landing URL parameters]
+  D --> E[Trigger Email #1 Objective: bring visitor to Web/App]
+  E --> F[Email provider passes Visitor ID into AB Tasty landing URL parameters]
   F --> G[Visitor lands on PLP via email deep link]
 
   %% =========================
   %% ONSITE EXPERIENCE
   %% =========================
-  G --> H[PLP experience in AB Tasty\nReorder category/listing\nDisplay 5 complementary products\nRecommendations override standard merchandising]
+  G --> H[PLP experience in AB Tasty Reorder category/listing Display 5 complementary products Recommendations override standard merchandising]
 
   %% =========================
   %% STOP CONDITION
   %% =========================
   H --> I{Purchase occurs?}
-  I -- Yes --> Z[STOP sequence\nEnd journey]
-  I -- No --> J[No purchase\nSend PLP impression + viewed products\nBack to Salesforce + Potions]
+  I -- Yes --> Z[STOP sequence End journey]
+  I -- No --> J[No purchase Send PLP impression + viewed products Back to Salesforce + Potions]
 
   %% =========================
   %% FOLLOW-UP EMAIL
   %% =========================
-  J --> K[Email #2\nUse Potions variables / recs\nInclude SAME products as PLP header]
+  J --> K[Email #2 Use Potions variables / recs Include SAME products as PLP header]
   K --> L{User clicks a product in email?}
 
   %% Click path
-  L -- Yes --> M[Redirect to PDP\nClick tracked by email provider + AB Tasty]
-  M --> N[PDP experience\nKeep complementary products\nlinked to recommended products]
+  L -- Yes --> M[Redirect to PDP Click tracked by email provider + AB Tasty]
+  M --> N[PDP experience Keep complementary products linked to recommended products]
   N --> O{Purchase occurs?}
   O -- Yes --> Z
   O -- No --> P[Continue nurture / retargeting]
 
   %% No-click path
-  L -- No --> Q[STOP email journey\nNo engagement]
-  Q --> R[Fallback onsite message\nIf visitor returns: \"Contact an advisor\\nto finalise your purchase\"]
+  L -- No --> Q[STOP email journey No engagement]
+  Q --> R[Fallback onsite message If visitor returns: Contact an advisor to finalise your purchase]
 
   %% =========================
   %% PARALLEL STORE PUSH
   %% =========================
   C --> S[Parallel flow: Geolocation activation]
-  S --> T[Push in-person store visit\nNearest store + directions\nPrivate appointment CTA]
-  T --> U[If no click/purchase\nDisplay CTA: \"Constructer un conseiller\\npour finaliser achat\"]
+  S --> T[Push in-person store visit Nearest store + directions Private appointment CTA]
+  T --> U[If no click/purchase Display CTA: Constructer un conseiller pour finaliser achat]
 ```
+
+
 
