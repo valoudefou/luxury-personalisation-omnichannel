@@ -251,7 +251,7 @@ flowchart TD
   H --> E
 
   F -- Yes --> I[Build recommendations\nComplementary to purchased items\nBased on spend and history\nExclude already owned]
-  I --> J[Onsite or in app modules\nReels PDP PLP cart checkout]
+  I --> J[From email user arrive on PLP with recommended products complemnetary products]
   J --> K[Start second purchase window]
 
   K --> L{Second purchase occurs\nwithin window?}
