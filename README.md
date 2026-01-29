@@ -240,7 +240,7 @@ GDPR Review and Final Checks     :des6, after des5, 3d
 ```mermaid
 flowchart TD
   A[Start: Salesforce always on sync to AB Tasty] --> B[Resolve unified User ID\nweb app email SMS in store]
-  B --> C[Ingest LV data into AB Tasty\nprofile attributes and events]
+  B --> C[Ingest LV data into AB Tasty\nprofile attributes and events - USER ID, TRANSACTION INSTORE, PRODUCT BOUGHT INSTORE, NUMBER OF TRANSACTION, IDS OF THE PRODUCT PURCHASED]
   C --> D[Expose omnichannel parameters\nEmail: sent open click content\nPush: delivered open click\nSMS: sent click\nWeb/App: view add to cart wishlist purchase\nIn store: purchase items amount]
 
   D --> E[User arrives on website or app]
