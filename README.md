@@ -256,7 +256,7 @@ flowchart TD
 
   K --> L{Second purchase occurs\nwithin window?}
   L -- Yes --> M[Stop follow up\nEnd journey]
-  L -- No --> N[Trigger comms wave 1\nEmail SMS Push In app]
+  L -- No --> N[If user don’t by potions passed recs in email provider with same products displayed previously on PLP head of PLP]
 
   N --> O{Conversion after wave 1?}
   O -- Yes --> M
