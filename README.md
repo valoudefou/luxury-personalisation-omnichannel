@@ -258,7 +258,7 @@ flowchart TD
   L -- Yes --> M[Stop follow up\nEnd journey]
   L -- No --> N[If user don’t by potions passed recs in email provider with same products displayed previously on PLP head of PLP]
 
-  N --> O{Conversion after wave 1?}
+  N --> O{User click product or not?}
   O -- Yes --> M
   O -- No --> P[Trigger comms wave 2\nMore assertive\nFocus on complementary\nInclude seen products]
 
