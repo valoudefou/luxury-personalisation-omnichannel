@@ -228,3 +228,52 @@ section QA & Compliance
 CRM Synchronisation and QA       :des5, after des4, 5d
 GDPR Review and Final Checks     :des6, after des5, 3d
 ```
+
+
+
+
+
+
+
+```
+flowchart TD
+  A[Start: Salesforce always on sync to AB Tasty] --> B[Resolve unified User ID\nweb app email SMS in store]
+  B --> C[Ingest LV data into AB Tasty\nprofile attributes and events]
+  C --> D[Expose omnichannel parameters\nEmail: sent open click content\nPush: delivered open click\nSMS: sent click\nWeb/App: view add to cart wishlist purchase\nIn store: purchase items amount]
+
+  D --> E[User arrives on website or app]
+  E --> F{Has recent purchase\nonline or in store?}
+
+  F -- No --> G[Personalise discovery\nYou may also like reels\nTrending by segment\nContextual content]
+  G --> H[Track behaviour and update profile]
+  H --> E
+
+  F -- Yes --> I[Build recommendations\nComplementary to purchased items\nBased on spend and history\nExclude already owned]
+  I --> J[Onsite or in app modules\nReels PDP PLP cart checkout]
+  J --> K[Start second purchase window]
+
+  K --> L{Second purchase occurs\nwithin window?}
+  L -- Yes --> M[Stop follow up\nEnd journey]
+  L -- No --> N[Trigger comms wave 1\nEmail SMS Push In app]
+
+  N --> O{Conversion after wave 1?}
+  O -- Yes --> M
+  O -- No --> P[Trigger comms wave 2\nMore assertive\nFocus on complementary\nInclude seen products]
+
+  P --> Q{Conversion after wave 2?}
+  Q -- Yes --> M
+  Q -- No --> R[Privilege escalation\nChoose best action]
+  R --> S{Customer value\nand intent score high?}
+
+  S -- Yes --> T[Invite to private event\nor advisor appointment]
+  S -- No --> U[In store incentive\nSpend code or store visit nudge]
+
+  T --> V[Landing experience\nPrimary CTA: Book appointment\nSecondary: Add to cart\nShow nearest stores]
+  U --> V
+
+  V --> W{Conversion or booking?}
+  W -- Yes --> M
+  W -- No --> X[Recycle to nurture\nAdjust frequency caps\nUpdate segments]
+  X --> E
+
+```
