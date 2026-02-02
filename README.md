@@ -8,7 +8,7 @@ flowchart TD
   A[Step 1: Customer browses Dior website<br/>Discovers products, compares, hesitates<br/>Adds items to basket<br/><b>Clear intention to purchase</b> AdaptiveCX]
   --> B[Step 2: Basket abandonment<br/>Leaves at checkout due to interruption, hesitation, reassurance needed<br/><b>Result:</b> basket pending, no purchase]
 
-  B --> C[Step 3: Personalised follow up email<br/>Message tailored to situation:<br/>• Basket reminder<br/>• Stores near you (drive to store)<br/>• Speak to an adviser<br/>• Product recommendations<br/><b>Goal:</b> reduce hesitation and reopen path to purchase]
+  B --> C[Step 3: Personalised follow up email<br/>Message tailored to situation:<br/>• Basket reminder<br/>• Stores near you drive to store<br/>• Speak to an adviser<br/>• Product recommendations<br/><b>Goal:</b> reduce hesitation and reopen path to purchase]
 
   C --> D{Step 4: After email<br/>Customer chooses a path}
 
@@ -31,7 +31,7 @@ flowchart TD
   C2 -->|No| N1
 
   %% =========================
-  %% STYLES (beige + gold + grey like your image)
+  %% STYLES beige + gold + grey like your image
   %% =========================
   classDef step fill:#F6EFE6,stroke:#CBBBAA,color:#2B2B2B,stroke-width:1px;
   classDef decision fill:#EFE5DA,stroke:#CBBBAA,color:#2B2B2B,stroke-width:1px;
