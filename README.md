@@ -5,7 +5,7 @@ flowchart TD
   %% Same colour palette as your reference image
   %% =========================
 
-  A[Step 1: Customer browses Dior website<br/>Discovers products, compares, hesitates<br/>Adds items to basket<br/><b>Clear intention to purchase</b> (AdaptiveCX)]
+  A[Step 1: Customer browses Dior website<br/>Discovers products, compares, hesitates<br/>Adds items to basket<br/><b>Clear intention to purchase</b> AdaptiveCX]
   --> B[Step 2: Basket abandonment<br/>Leaves at checkout due to interruption, hesitation, reassurance needed<br/><b>Result:</b> basket pending, no purchase]
 
   B --> C[Step 3: Personalised follow up email<br/>Message tailored to situation:<br/>• Basket reminder<br/>• Stores near you (drive to store)<br/>• Speak to an adviser<br/>• Product recommendations<br/><b>Goal:</b> reduce hesitation and reopen path to purchase]
