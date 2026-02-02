@@ -51,4 +51,4 @@ flowchart TD
   C --> S[Parallel flow: Geolocation activation]
   S --> T[Push in person store visit<br/>Nearest store and directions<br/>Private appointment CTA]
   T --> U[If no click or purchase<br/>Display CTA: Contact an advisor to finalise purchase]
-  ```
+  
