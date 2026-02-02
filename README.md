@@ -7,7 +7,7 @@ flowchart TD
     --> B[Salesforce captures transaction<br/>User ID or Loyalty card ID<br/>Product IDs purchased<br/>Transaction count<br/>Amount<br/>Store ID]
 
   B --> C[Expose all Salesforce data to AB Tasty<br/>Identity stitching and unified profile]
-  C --> D[Compute complementary products from purchased product IDs<br/>Generate Top 5 recommendations]
+  C --> D[Compute complementary products from purchased product IDs<br/>Generate Top 5 recommendations with AB Tasty Product Recommendations engine]
 
   %% =========================
   %% EMAIL ACTIVATION
@@ -19,24 +19,24 @@ flowchart TD
   %% =========================
   %% ONSITE EXPERIENCE
   %% =========================
-  G --> H[PLP experience in AB Tasty<br/>Reorder category or listing<br/>Display 5 complementary products<br/>Recommendations override standard merchandising]
+  G --> H[PLP experience in AB Tasty<br/>Reorder category or listing with AB Tasty Visual Editor<br/>Display 5 complementary products<br/>Recommendations override standard merchandising with AB Tasty Product Recommendations engine]
 
   %% =========================
   %% STOP CONDITION
   %% =========================
   H --> I{Purchase occurs?}
   I -- Yes --> Z[STOP sequence<br/>End journey]
-  I -- No --> J[No purchase<br/>Send PLP impression and viewed products<br/>Back to Salesforce and Potions]
+  I -- No --> J[No purchase<br/>Send PLP impression and viewed products<br/>Back to Salesforce and AB Tasty Product Recommendations engine]
 
   %% =========================
   %% FOLLOW UP EMAIL
   %% =========================
-  J --> K[Email 2<br/>Use Potions variables and recs<br/>Include same products as PLP header]
+  J --> K[Email 2<br/>Use AB Tasty Email Recommendations engine<br/>Include same products as PLP header]
   K --> L{User clicks a product in email?}
 
   %% Click path
   L -- Yes --> M[Redirect to PDP<br/>Click tracked by email provider and AB Tasty]
-  M --> N[PDP experience<br/>Keep complementary products linked to recommended products]
+  M --> N[PDP experience<br/>Keep complementary products linked to recommended products by AB Tasty Product Recommendations engine]
   N --> O{Purchase occurs?}
   O -- Yes --> Z
   O -- No --> P[Continue nurture or retargeting]
