@@ -4,9 +4,9 @@ flowchart TD
   %% DATA + TRIGGER
   %% =========================
   A[Trigger: First transaction<br/>Online or in store]
-    --> B[Salesforce captures transaction<br/>User ID or Loyalty card ID<br/>Product IDs purchased<br/>Transaction count<br/>Amount<br/>Store ID]
+    --> B[GA4/BigQuery captures transaction<br/>User ID or Loyalty card ID<br/>Product IDs purchased<br/>Transaction count<br/>Amount<br/>Store ID]
 
-  B --> C[Expose all Salesforce data to AB Tasty<br/>Identity stitching and unified profile]
+  B --> C[Expose all GA4/BigQuery data to AB Tasty<br/>Identity stitching and unified profile]
   C --> D[Compute complementary products from purchased product IDs<br/>Generate Top 5 recommendations with AB Tasty Product Recommendations engine]
 
   %% =========================
@@ -19,14 +19,14 @@ flowchart TD
   %% =========================
   %% ONSITE EXPERIENCE
   %% =========================
-  G --> H[PLP experience in AB Tasty<br/>Reorder category or listing with AB Tasty Visual Editor<br/>Display 5 complementary products<br/>Recommendations override standard merchandising with AB Tasty Product Recommendations engine]
+  G --> H[PLP experience in AB Tasty<br/>Reorder category or listing with AB Tasty API first<br/>Display 5 complementary products<br/>Recommendations override standard merchandising with AB Tasty Product Recommendations engine]
 
   %% =========================
   %% STOP CONDITION
   %% =========================
   H --> I{Purchase occurs?}
   I -- Yes --> Z[STOP sequence<br/>End journey]
-  I -- No --> J[No purchase<br/>Send PLP impression and viewed products<br/>Back to Salesforce and AB Tasty Product Recommendations engine]
+  I -- No --> J[No purchase<br/>Send PLP impression and viewed products<br/>Back to GA4/BigQuery and AB Tasty Product Recommendations engine]
 
   %% =========================
   %% FOLLOW UP EMAIL
