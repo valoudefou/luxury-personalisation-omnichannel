@@ -7,7 +7,7 @@ flowchart TD
     %% Main workflow
     A[Fetch catalogue from Centra] --> B[Append custom attributes to products]
     B --> C[Add video URLs, labels, localised text per store]
-    C --> D[Create store-specific indexes (UK, US, etc.)]
+    C --> D["Create store-specific indexes - UK / US"]
     D --> E[Push indexes to AB Tasty]
     E --> F[AB Tasty creates copies of indexes]
     F --> G[AB Tasty replaces live indexes]
