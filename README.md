@@ -5,9 +5,9 @@ This flowchart shows a simplified technical workflow for updating product indexe
 ```mermaid
 flowchart TD
     %% Main workflow
-    A[Fetch catalogue from Centra] --> B[Append custom attributes to products]
+    A[Fetch catalogue from Centra] --> B[ME+EM act as Middleman Append custom attributes to products]
     B --> C[Add video URLs, labels, localised text per store]
-    C --> D[Create store-specific indexes (UK, US, etc.)]
+    C --> D[Create store-specific indexes UK, US, etc.]
     D --> E[Push indexes to AB Tasty]
     E --> F[AB Tasty creates copies of indexes]
     F --> G[AB Tasty replaces live indexes]
