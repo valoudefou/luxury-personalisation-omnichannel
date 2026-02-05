@@ -5,10 +5,10 @@ This flowchart describes the detailed technical workflow for querying the catalo
 ```mermaid
 flowchart TD
     %% Data source
-    A[Centra Catalogue] --> B[Fetch product data]
+    A[Centra Catalogue] --> B[ME+EM act as middleman]
 
     %% Data processing
-    B --> C[Append custom attributes]
+    B --> C[Send catalog to AB Tasty]
     C --> C1[Add video URLs]
     C --> C2[Add labels]
     C --> C3[Add localised text per store]
