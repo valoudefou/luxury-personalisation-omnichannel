@@ -1,6 +1,6 @@
 # Product Index Technical Flowchart
 
-This flowchart shows a simplified technical workflow for updating product indexes and pushing them to AB Tasty. The steps involving AB Tasty are highlighted in blue.
+This flowchart shows a simplified technical workflow. The steps involving AB Tasty are highlighted to indicate that **ME + EM uses AB Tasty API**.
 
 ```mermaid
 flowchart TD
@@ -12,6 +12,9 @@ flowchart TD
     E --> F[AB Tasty creates copies of indexes]
     F --> G[AB Tasty replaces live indexes]
 
+    %% Annotation for API usage
+    D -.-> X[ME + EM uses AB Tasty API]
+
     %% Styling for clarity
     classDef api fill:#f9f,stroke:#333,stroke-width:1px;
     classDef doc fill:#ff9,stroke:#333,stroke-width:1px;
@@ -22,6 +25,4 @@ flowchart TD
     class T api;
     class M doc;
     class N maint;
-    class E tasty;
-    class F tasty;
-    class G tasty;
+    class E,F,G tasty;
