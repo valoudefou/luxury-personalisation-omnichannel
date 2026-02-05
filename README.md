@@ -12,9 +12,6 @@ flowchart TD
     E --> F[AB Tasty creates copies of indexes]
     F --> G[AB Tasty replaces live indexes]
 
-    %% Annotation for API usage
-    D -.-> X[ME + EM uses AB Tasty API]
-
     %% Styling for clarity
     classDef api fill:#f9f,stroke:#333,stroke-width:1px;
     classDef doc fill:#ff9,stroke:#333,stroke-width:1px;
