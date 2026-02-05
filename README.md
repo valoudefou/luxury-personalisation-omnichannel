@@ -13,9 +13,9 @@ flowchart TD
     F --> G[AB Tasty replaces live indexes]
 
     %% Annotations
-    B -.-> T[Tasty API: Users push product updates]
-    D -.-> M[Documentation: Store-specific index guidelines]
-    E -.-> N[Maintenance: Monitor index pushes & updates]
+    B --> T[Tasty API: Users push product updates]
+    D --> M[Documentation: Store-specific index guidelines]
+    E --> N[Maintenance: Monitor index pushes & updates]
 
     %% Styling for clarity
     classDef api fill:#f9f,stroke:#333,stroke-width:1px;
