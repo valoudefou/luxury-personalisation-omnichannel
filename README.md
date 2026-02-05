@@ -1,4 +1,4 @@
-flowchart TD
+```flowchart TD
     A[Query catalogue on Centra] --> B[Append custom attributes to each product]
     B --> C[Add video URLs, labels, localised text per store]
     C --> D[Create store-specific index for each store: UK / US]
@@ -18,4 +18,4 @@ flowchart TD
 
     class T api;
     class M doc;
-    class N maint;
+    class N maint;```
