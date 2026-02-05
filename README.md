@@ -1,3 +1,8 @@
+# Product Index Flowchart
+
+This flowchart describes the process of querying the catalogue, appending custom attributes, creating store-specific indexes, and pushing them to AB Tasty, including where API, documentation, and maintenance are involved.
+
+```mermaid
 flowchart TD
     A[Query catalogue on Centra] --> B[Append custom attributes to each product]
     B --> C[Add video URLs, labels, localised text per store]
