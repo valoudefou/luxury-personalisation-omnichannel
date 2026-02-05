@@ -6,4 +6,3 @@ flowchart TD
     D --> E[Push all indexes to Algolia]
     E --> F[Algolia creates a copy of each index]
     F --> G[Algolia replaces live index once ready]
-    ```
