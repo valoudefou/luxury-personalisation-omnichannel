@@ -1,4 +1,4 @@
- mermaid
+``` mermaid
 flowchart TD
     A[Query catalogue on Centra] --> B[Append custom attributes to each product]
     B --> C[Add Video URLs, Labels, Localised Text per store]
@@ -6,3 +6,4 @@ flowchart TD
     D --> E[Push all indexes to Algolia]
     E --> F[Algolia creates a copy of each index]
     F --> G[Algolia replaces live index once ready]
+```
