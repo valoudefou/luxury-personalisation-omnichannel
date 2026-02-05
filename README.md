@@ -1,4 +1,4 @@
-``` mermaid
+ mermaid
 flowchart TD
     A[Query catalogue on Centra] --> B[Append custom attributes to each product]
     B --> C[Add Video URLs, Labels, Localised Text per store]
